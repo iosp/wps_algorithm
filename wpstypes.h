@@ -7,6 +7,7 @@ typedef int Platform_Location_Info;
 typedef int CloudQueryAnswer;
 typedef int CloudQuery;
 typedef int Calculated_Sensor_Geo_Loc_Orient;
+
 enum AlgNotificationTypes {
     AlgNull=0,
     AlgModReadyForConstruction=1,

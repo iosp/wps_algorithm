@@ -1,3 +1,7 @@
+#include <thread>
+#include <cstdlib>
+#include <cstdio>
+#include <iostream>
 #include "algorithmsubsystem.h"
 //#include <managementalgorithm_global.h>
 
@@ -17,6 +21,8 @@ int AlgorithmSubSystem::InitiateSensorLocationReporting(Region_Of_Mission rom)
       /** This method is called by the WPS module when navigation sensor should be activated.
        *  After that, the module will start to report navigation data via ProcessSensorLocUpdate
        * ****/
+    std::cout<<"AlgorithmSubSystem::InitiateSensorLocationReporting called with param:"<<rom<<std::endl;
+
     Calculated_Sensor_Geo_Loc_Orient geo_loc_orient;
     m_alg_ptr->ProcessSensorLocUpdate(geo_loc_orient);
     return 1;
@@ -43,6 +49,8 @@ int AlgorithmSubSystem::PrepareForModelConstruction(Region_Of_Mission rom, int r
        * If needed:
        *    - Load orthophoto (RoM)
         ***/
+    std::cout<<"AlgorithmSubSystem::PrepareForModelConstruction called with param:"<<rom<<std::endl;
+
        int ret;
        ret = m_alg_ptr->LoadOrthophoto(rom);
        /**
@@ -58,7 +66,7 @@ int AlgorithmSubSystem::PrepareForModelConstruction(Region_Of_Mission rom, int r
     return 1;
 }
 
-int AlgorithmSubSystem::UpdateSensorLocOrient(Platform_Location_Info)
+int AlgorithmSubSystem::UpdateSensorLocOrient(Platform_Location_Info loc_info)
 {
       /** This method is called periodically by the WPS module to report location
        * of the platform so that the module will start building model when relevant.
@@ -68,6 +76,8 @@ int AlgorithmSubSystem::UpdateSensorLocOrient(Platform_Location_Info)
        * stopSendingSensorLocationOrientation method
        *
        * ****/
+    std::cout<<"AlgorithmSubSystem::UpdateSensorLocOrient called with param:"<<loc_info<<std::endl;
+
     return 1;
 
 }

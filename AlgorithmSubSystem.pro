@@ -8,6 +8,9 @@ QT       -= gui
 
 TARGET = AlgorithmSubSystem
 TEMPLATE = lib
+CONFIG += staticlib c++14
+CONFIG(release,debug|release): conf = release
+CONFIG(debug,debug|release): conf = debug
 
 DEFINES += ALGORITHMSUBSYSTEM_LIBRARY
 
